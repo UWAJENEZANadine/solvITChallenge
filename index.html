@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <h1>#Challenge-1</h1>
+    <div class="Challenge-1">
+      <p>Enter numbers separated by commas:</p>
+      <input type="text" id="numbersInput" class="Array-input" />
+      <button onclick="calculateSum()">SumArray</button>
+      <p id="result" class="Array-result"></p>
+    </div>
+
+    <h1>#Challenge-2</h1>
+    <div class="vowel-challenge">
+      <p>Enter a string: <input type="text" id="inputString" /></p>
+      <button onclick="removeVowels()">Remove Vowels</button>
+      <h2 id="output" class="vowel-result"></h2>
+    </div>
+    <h1>#Challenge-3</h1>
+    <div class="div-container">
+      <form id="form" class="form-container">
+        <label for="name">Input1:</label>
+        <input type="text" id="input1" name="name" /><br /><br />
+
+        <label for="email">Input2:</label>
+        <input type="text" id="input2" name="email" /><br /><br />
+
+        <button type="submit" value="Submit" id="submit-btn">Submit</button>
+      </form>
+
+      <div id="result2" class="result-container"></div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+      function sumArray(numbers) {
+        let sum = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          sum += numbers[i];
+        }
+        return sum;
+      }
+    </script>
+    <script>
+      function calculateSum() {
+        let input = document.getElementById("numbersInput").value;
+        let numbers = input.split(",");
+        for (let i = 0; i < numbers.length; i++) {
+          numbers[i] = parseInt(numbers[i]);
+        }
+        let result1 = sumArray(numbers);
+        document.getElementById("result").innerHTML =
+          "The sum of the numbers in the array is: " + result1;
+      }
+    </script>
+
+    <script>
+      function removeVowels() {
+        const input = document.getElementById("inputString").value;
+        const vowels = "aeiouAEIOU";
+        let output = "";
+
+        for (let i = 0; i < input.length; i++) {
+          if (!vowels.includes(input[i])) {
+            output += input[i];
+          }
+        }
+
+        document.getElementById("output").innerHTML = "Result: " + output;
+      }
+    </script>
+  </body>
+</html>
